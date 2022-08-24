@@ -1,0 +1,122 @@
+﻿<Window x:Class="Seguimiento.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Seguimiento"
+        xmlns:ViewModel="clr-namespace:Seguimiento.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
+
+    <!--Data context para el binding-->
+    <Window.DataContext>
+        <ViewModel:MainViewModel/>
+    </Window.DataContext>
+    
+    
+    <Border Background="#BFBFBF"
+            BorderThickness="5"
+            CornerRadius="15">
+
+        <Grid>
+
+            <!--Definicion columnas-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--Definicion filas-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!--Logotipo-->
+            <StackPanel Grid.Row="0" Grid.Column="0" Background="#0099DD">
+                <Label Content="isastur"
+                   Margin="20 0 0 0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   FontSize="20"
+                   Foreground="White"
+                   FontWeight="Bold"/>
+            </StackPanel>
+
+            <!--Control cierre/minimizar-->
+            <StackPanel Grid.Row="0" Grid.Column="1" Background="#0099DD" >
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnMinimizar"
+                            Content="-"
+                            Margin="0 0 20 0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Foreground="Black"
+                            FontSize="30"
+                            Click="btnMinimizar_Click"
+                            />
+                    <Button x:Name="btnCerrar"
+                            Content="x"
+                            Margin="0 0 10 0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="right"
+                            Foreground="Black"
+                            FontSize="30"
+                            Click="btnCerrar_Click"
+                            />
+                </StackPanel>
+            </StackPanel>
+
+            <!--Menu-->
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Inicio"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="true"
+                             Command="{Binding HomeViewCommand}"/>
+                
+                <RadioButton Content="Nueva"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding NuevaViewCommand}"/>
+
+                <RadioButton Content="Abiertas"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}" />
+
+                <RadioButton Content="Cerradas"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}" />
+
+                <RadioButton Content="Ajustes"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}" />
+
+            </StackPanel>
+                            
+            <!--Vista Dinámica-->
+            <ContentControl Grid.Row="1" 
+                            Grid.Column="1"
+                            Content="{Binding CurrentView}"
+                            />
+
+
+
+        </Grid>
+
+    </Border>
+</Window>
