@@ -17,7 +17,7 @@
         <ViewModel:MainViewModel/>
     </Window.DataContext>
     
-    
+    <!--Borde aplicacion-->
     <Border Background="#BFBFBF"
             BorderThickness="5"
             CornerRadius="15">
