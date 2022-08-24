@@ -5,10 +5,55 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Seguimiento.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="200"
-             Background="White">
-    <StackPanel>
-        <Label Margin="50"  Content="Esto es una etiqueta" HorizontalAlignment="Center" VerticalAlignment="Center" Background="white"/>
+             d:DesignHeight="400" d:DesignWidth="650"
+             Background="#EEEEEE">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-    </StackPanel>
+        <Label Content="Instalación:"
+               Grid.Row="0"
+               HorizontalAlignment="Left"
+               Padding="1"
+               FontWeight="Bold"
+               FontSize="25"/>
+
+        <Border Grid.Row="1"
+                CornerRadius="5"
+                Background="#DDDDDD"
+                Width="60"
+                Height="20"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <TextBox Background="Transparent"                    
+                     VerticalAlignment="Center"
+                     BorderThickness="0"
+                     />
+        </Border>
+
+        <Label Content="Incidencia:"
+               Grid.Row="2"
+               Margin="0 0 0 0"
+               HorizontalAlignment="Left"
+               Padding="1"
+               FontWeight="Bold"
+               FontSize="25"/>
+
+        <Border Grid.Row="3"
+                CornerRadius="5"
+                Background="#DDDDDD"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="100"
+                Width="650">
+            <TextBox Background="Transparent"                    
+                     BorderThickness="0"
+                     />
+        </Border>
+
+    </Grid>
 </UserControl>

@@ -7,8 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="200"
              Background="White">
-    <StackPanel>
-        <Label Margin="50"  Content="Esto es otra etiqueta" HorizontalAlignment="Center" VerticalAlignment="Center" Background="white"/>
-
-    </StackPanel>
+    <Grid>
+        
+        
+        
+    </Grid>
 </UserControl>

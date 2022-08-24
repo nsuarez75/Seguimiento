@@ -62,29 +62,20 @@
                             Click="btnMinimizar_Click"
                             />
                     <Button x:Name="btnCerrar"
-                            Content="x"
-                            Margin="0 0 10 0"
+                            Content="X"
+                            Margin="0 6 10 0"
                             Background="Transparent"
                             BorderThickness="0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="right"
-                            Foreground="Black"
-                            FontSize="30"
-                            Click="btnCerrar_Click"
-                            />
+                            Click="btnCerrar_Click"/>
+
                 </StackPanel>
             </StackPanel>
 
             <!--Menu-->
             <StackPanel Grid.Row="1">
 
-                <RadioButton Content="Inicio"
-                             Height="50"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="true"
-                             Command="{Binding HomeViewCommand}"/>
-                
                 <RadioButton Content="Nueva"
                              Height="50"
                              FontSize="14"
