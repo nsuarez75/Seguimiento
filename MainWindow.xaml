@@ -108,7 +108,7 @@
 
             </StackPanel>
                             
-            <!--Vista Dinámica-->
+            <!--Vista Dinamica-->
             <ContentControl Grid.Row="1" 
                             Grid.Column="1"
                             Content="{Binding CurrentView}"
