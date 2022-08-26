@@ -14,11 +14,11 @@
             <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
                 <View:HomeView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type ViewModel:NuevaViewModel}">
                 <View:NuevaView/>
             </DataTemplate>
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

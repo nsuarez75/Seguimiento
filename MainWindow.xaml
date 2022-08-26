@@ -21,7 +21,7 @@
     <Border Background="#BFBFBF"
             BorderThickness="5"
             CornerRadius="15">
-
+        
         <Grid>
 
             <!--Definicion columnas-->
