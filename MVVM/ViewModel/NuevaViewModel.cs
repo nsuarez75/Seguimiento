@@ -1,4 +1,4 @@
-﻿using Seguimiento.Core;
+﻿using MvvmHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Seguimiento.MVVM.ViewModel
 
         public NuevaViewModel()
         {
-            Texto = "probabando";
+
         }
 
 

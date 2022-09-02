@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Seguimiento.MVVM.View.AjustesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Seguimiento.MVVM.View"
+             xmlns:ViewModel="clr-namespace:Seguimiento.MVVM.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="650"
+             Background="#EEEEEE">
+
+    <UserControl.DataContext>
+        <ViewModel:AjustesViewModel/>
+    </UserControl.DataContext>
+
+
+    <Canvas>
+        <Label Content="Plantilla:" Canvas.Left="10" Canvas.Top="32" Width="93" FontSize="18" FontWeight="Bold"/>
+        <ListBox Height="27" Width="165" Canvas.Top="66" Canvas.Left="10"
+                 ItemsSource="{Binding ContenidoLista}"/>
+
+
+
+
+
+    </Canvas>
+</UserControl>

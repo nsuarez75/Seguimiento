@@ -79,6 +79,7 @@
                 <RadioButton Content="Nueva"
                              Height="50"
                              FontSize="14"
+                             IsChecked="True"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NuevaViewCommand}"/>
 
@@ -95,7 +96,8 @@
                 <RadioButton Content="Ajustes"
                              Height="50"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}" />
+                             Style="{StaticResource MenuButtonTheme}" 
+                             Command="{Binding AjustesViewCommand}"/>
 
             </StackPanel>
                             

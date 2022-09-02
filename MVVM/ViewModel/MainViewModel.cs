@@ -1,4 +1,5 @@
-﻿using Seguimiento.Core;
+﻿using MvvmHelpers;
+using Command = MvvmHelpers.Commands.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,18 @@ namespace Seguimiento.MVVM.ViewModel
     class MainViewModel : ObservableObject
     {
         //Comandos cambio página
-        public RelayCommand HomeViewCommand { get; set; }
+        public Command HomeViewCommand { get; set; }
 
-        public RelayCommand NuevaViewCommand { get; set; }
+        public Command NuevaViewCommand { get; set; }
+
+        public Command AjustesViewCommand { get; set; }
 
         //Propiedades instancias viewmodels
         public HomeViewModel HomeVM { get; set; }
 
         public NuevaViewModel NuevaVM { get; set; }
+
+        public AjustesViewModel AjustesVM { get; set; }
 
         //propiedad que recibe la vista actual
         private object _currentView;
@@ -38,19 +43,25 @@ namespace Seguimiento.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             NuevaVM = new NuevaViewModel();
+            AjustesVM = new AjustesViewModel();
 
             //Inicializar primera vista
-            CurrentView = HomeVM;
+            CurrentView = NuevaVM;
 
             //Relay Commands
-            HomeViewCommand = new RelayCommand(o => 
+            HomeViewCommand = new Command(o => 
             {
                 CurrentView = HomeVM;
             });
 
-            NuevaViewCommand = new RelayCommand(o =>
+            NuevaViewCommand = new Command(o =>
             {
                 CurrentView = NuevaVM;
+            });
+
+            AjustesViewCommand = new Command(o =>
+            {
+                CurrentView = AjustesVM;
             });
         }
 
