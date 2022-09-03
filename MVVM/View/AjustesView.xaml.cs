@@ -24,5 +24,6 @@ namespace Seguimiento.MVVM.View
         {
             InitializeComponent();
         }
+
     }
 }

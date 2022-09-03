@@ -15,9 +15,15 @@
 
 
     <Canvas>
-        <Label Content="Plantilla:" Canvas.Left="10" Canvas.Top="32" Width="93" FontSize="18" FontWeight="Bold"/>
-        <ListBox Height="27" Width="165" Canvas.Top="66" Canvas.Left="10"
-                 ItemsSource="{Binding ContenidoLista}"/>
+        <Label Content="Seleccionar plantilla:" Canvas.Left="10" Canvas.Top="32" Width="193" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox Height="32" Width="158" Canvas.Top="66" Canvas.Left="17"
+                 ItemsSource="{Binding ContenidoLista}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Content="Agregar" Canvas.Left="480" Canvas.Top="59" Height="34" Width="69" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Nueva Plantilla:" Canvas.Left="316" Canvas.Top="32" Width="193" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="322" TextWrapping="Wrap" Text="Nombre" Canvas.Top="66" Width="131" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27"/>
+        <Label Content="Anotador:" Canvas.Left="11" Canvas.Top="103" Width="193" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="17" TextWrapping="Wrap" Canvas.Top="142" Width="131" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27"/>
+        <Button Content="Guardar" Canvas.Left="17" Canvas.Top="183" Height="34" Width="69" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
 
