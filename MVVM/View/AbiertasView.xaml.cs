@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace Seguimiento.MVVM.View
 {
     /// <summary>
-    /// Lógica de interacción para HomeView.xaml
+    /// Lógica de interacción para AbiertasView.xaml
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class AbiertasView : UserControl
     {
-        public HomeView()
+        public AbiertasView()
         {
             InitializeComponent();
         }
+
     }
 }

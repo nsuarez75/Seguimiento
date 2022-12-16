@@ -12,18 +12,21 @@ namespace Seguimiento.MVVM.ViewModel
     class MainViewModel : ObservableObject
     {
         //Comandos cambio página
-        public Command HomeViewCommand { get; set; }
 
         public Command NuevaViewCommand { get; set; }
 
-        public Command AjustesViewCommand { get; set; }
+        public Command ListadoViewCommand { get; set; }
+
+        public Command AbiertasViewCommand { get; set; }
 
         //Propiedades instancias viewmodels
-        public HomeViewModel HomeVM { get; set; }
 
         public NuevaViewModel NuevaVM { get; set; }
 
-        public AjustesViewModel AjustesVM { get; set; }
+        public ListadoViewModel ListadoVM { get; set; }
+
+        public AbiertasViewModel AbiertasVM { get; set; }
+
 
         //propiedad que recibe la vista actual
         private object _currentView;
@@ -41,28 +44,29 @@ namespace Seguimiento.MVVM.ViewModel
 
         public MainViewModel()
         {
-            HomeVM = new HomeViewModel();
             NuevaVM = new NuevaViewModel();
-            AjustesVM = new AjustesViewModel();
+            ListadoVM = new ListadoViewModel();
+            AbiertasVM = new AbiertasViewModel();
 
             //Inicializar primera vista
             CurrentView = NuevaVM;
 
             //Relay Commands
-            HomeViewCommand = new Command(o => 
-            {
-                CurrentView = HomeVM;
-            });
-
             NuevaViewCommand = new Command(o =>
             {
                 CurrentView = NuevaVM;
             });
 
-            AjustesViewCommand = new Command(o =>
+            ListadoViewCommand = new Command(o =>
             {
-                CurrentView = AjustesVM;
+                CurrentView = ListadoVM;
             });
+
+            AbiertasViewCommand = new Command(o =>
+            {
+                CurrentView = AbiertasVM;
+            });
+
         }
 
     }

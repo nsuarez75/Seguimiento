@@ -37,8 +37,8 @@
 
             <!--Logotipo-->
             <StackPanel Grid.Row="0" Grid.Column="0" Background="#0099DD">
-                <Label Content="isastur"
-                   Margin="20 0 0 0"
+                <Label Content="Seguimiento"
+                   Margin="10 0 0 0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
                    FontSize="20"
@@ -86,18 +86,16 @@
                 <RadioButton Content="Abiertas"
                              Height="50"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}" />
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding AbiertasViewCommand}"/>
 
-                <RadioButton Content="Cerradas"
+                <RadioButton Content="Listado"
                              Height="50"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}" />
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ListadoViewCommand}"/>
 
-                <RadioButton Content="Ajustes"
-                             Height="50"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}" 
-                             Command="{Binding AjustesViewCommand}"/>
+             
 
             </StackPanel>
                             

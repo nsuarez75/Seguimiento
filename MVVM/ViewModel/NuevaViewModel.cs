@@ -1,4 +1,5 @@
 ﻿using MvvmHelpers;
+using Command = MvvmHelpers.Commands.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,14 @@ namespace Seguimiento.MVVM.ViewModel
             }
         }
 
-
+        public ObservableRangeCollection<string> Proyectos { get; set; }
+        public ObservableRangeCollection<string> Instalaciones { get; set; }
 
 
         public NuevaViewModel()
         {
-
+            Proyectos = new ObservableRangeCollection<string>();
+            Instalaciones = new ObservableRangeCollection<string>();
         }
 
 

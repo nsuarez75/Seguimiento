@@ -11,17 +11,19 @@
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
-                <View:HomeView/>
-            </DataTemplate>
 
             <DataTemplate DataType="{x:Type ViewModel:NuevaViewModel}">
                 <View:NuevaView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type ViewModel:AjustesViewModel}">
-                <View:AjustesView/>
+            <DataTemplate DataType="{x:Type ViewModel:ListadoViewModel}">
+                <View:ListadoView/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:AbiertasViewModel}">
+                <View:AbiertasView/>
+            </DataTemplate>
+
 
         </ResourceDictionary>
     </Application.Resources>

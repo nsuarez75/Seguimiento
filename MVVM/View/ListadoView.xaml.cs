@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace Seguimiento.MVVM.View
 {
     /// <summary>
-    /// Lógica de interacción para AjustesView.xaml
+    /// Lógica de interacción para ListadoView.xaml
     /// </summary>
-    public partial class AjustesView : UserControl
+    public partial class ListadoView : UserControl
     {
-        public AjustesView()
+        public ListadoView()
         {
             InitializeComponent();
         }
-
     }
 }
