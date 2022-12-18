@@ -34,6 +34,9 @@ namespace Seguimiento.Migrations
                     b.Property<string>("Instalacion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Produccion")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Proyecto")
                         .HasColumnType("TEXT");
 

@@ -40,6 +40,14 @@ namespace Seguimiento.MVVM.ViewModel
             set => SetProperty(ref _Proyecto, value);
         }
 
+        //Produccion
+        string _Produccion = "";
+        public string Produccion
+        {
+            get => _Produccion;
+            set => SetProperty(ref _Produccion, value);
+        }
+
         #endregion
 
 
@@ -53,13 +61,15 @@ namespace Seguimiento.MVVM.ViewModel
             using var db = new IncidenciaContext();
 
             //añadir incidencia a la base de datos
-            db.Add(new Incidencia 
-            {   Texto =  TextoIncidencia, 
-                Estado = false, 
-                Instalacion = Instalacion, 
+            db.Add(new Incidencia
+            {
+                Texto = TextoIncidencia,
+                Estado = false,
+                Instalacion = Instalacion,
                 HoraInicio = DateTime.Now.ToString("HH:mm"),
-                Proyecto = Proyecto
-                });
+                Proyecto = Proyecto,
+                Produccion = Produccion
+            }); ;
             db.SaveChanges();
 
         }

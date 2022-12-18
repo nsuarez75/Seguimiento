@@ -10,7 +10,7 @@ using Seguimiento.MVVM.Model;
 namespace Seguimiento.Migrations
 {
     [DbContext(typeof(IncidenciaContext))]
-    [Migration("20221218001432_Initialize")]
+    [Migration("20221218220045_Initialize")]
     partial class Initialize
     {
         /// <inheritdoc />
@@ -35,6 +35,9 @@ namespace Seguimiento.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Instalacion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Produccion")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Proyecto")

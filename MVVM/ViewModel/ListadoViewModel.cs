@@ -50,21 +50,38 @@ namespace Seguimiento.MVVM.ViewModel
 
         public void Borrar()
         {
-            //objeto base de datos
-            using var db = new IncidenciaContext();
-
-            var result = db.Incidencias.SingleOrDefault(
-                b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
-                        && b.Texto == IncidenciaSeleccionada.Texto));
-
-            if (result != null)
+            if (IncidenciaSeleccionada != null && IncidenciaSeleccionada.HoraInicio != null)
             {
-                db.Incidencias.Remove(result);
-                db.SaveChanges();
+                //objeto base de datos
+                using var db = new IncidenciaContext();
+
+                var result = db.Incidencias.First(
+                    b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
+                            && b.Texto == IncidenciaSeleccionada.Texto));
+
+                if (result != null)
+                {
+                    db.Incidencias.Remove(result);
+                    db.SaveChanges();
+                }
+
+                LeerProyectos();
+                ActualizarListado();
+            }
+                
+        }
+
+        public Command ExportarComando { get; }
+
+        public void Exportar()
+        {
+            if (ProyectoSeleccionado != null )
+            {
+                ExcelModel hoja = new ExcelModel();
+                hoja.GenerarExcel(Incidencias, "C:\\Users\\suare\\Desktop");
+
             }
 
-            LeerProyectos();
-            ActualizarListado();
         }
 
         #endregion
@@ -106,6 +123,7 @@ namespace Seguimiento.MVVM.ViewModel
 
             //Comandos
             BorrarComando = new Command(Borrar);
+            ExportarComando = new Command(Exportar);
 
             //Popular tabla
             ActualizarListado();

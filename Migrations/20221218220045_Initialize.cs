@@ -21,6 +21,7 @@ namespace Seguimiento.Migrations
                     HoraFin = table.Column<string>(type: "TEXT", nullable: true),
                     Instalacion = table.Column<string>(type: "TEXT", nullable: true),
                     Proyecto = table.Column<string>(type: "TEXT", nullable: true),
+                    Produccion = table.Column<string>(type: "TEXT", nullable: true),
                     Estado = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

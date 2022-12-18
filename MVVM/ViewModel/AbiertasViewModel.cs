@@ -48,22 +48,26 @@ namespace Seguimiento.MVVM.ViewModel
         public Command CerrarComando { get; }
 
         public void Cerrar()
-        {
-            //objeto base de datos
-            using var db = new IncidenciaContext();
-
-            var result = db.Incidencias.SingleOrDefault(
-                b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio 
-                        && b.Texto == IncidenciaSeleccionada.Texto));
-
-            if (result != null)
+        {if (IncidenciaSeleccionada != null && IncidenciaSeleccionada.HoraInicio != null)
+            
             {
-                result.HoraFin = DateTime.Now.ToString("HH:mm");
-                result.Estado = true;
-                db.SaveChanges();
-            }
+                //objeto base de datos
+                using var db = new IncidenciaContext();
 
-            ActualizarListado();
+                var result = db.Incidencias.SingleOrDefault(
+                    b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
+                            && b.Texto == IncidenciaSeleccionada.Texto));
+
+                if (result != null)
+                {
+                    result.HoraFin = DateTime.Now.ToString("HH:mm");
+                    result.Estado = true;
+                    db.SaveChanges();
+                }
+
+                ActualizarListado();
+            } 
+            
 
         }
 
@@ -71,21 +75,24 @@ namespace Seguimiento.MVVM.ViewModel
 
         public void Borrar()
         {
-            //objeto base de datos
-            using var db = new IncidenciaContext();
-
-            var result = db.Incidencias.SingleOrDefault(
-                b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
-                        && b.Texto == IncidenciaSeleccionada.Texto));
-
-            if (result != null)
+            if (IncidenciaSeleccionada != null && IncidenciaSeleccionada.HoraInicio != null)
             {
-                db.Incidencias.Remove(result);
-                db.SaveChanges();
-            }
+                //objeto base de datos
+                using var db = new IncidenciaContext();
 
-            LeerProyectos();
-            ActualizarListado();
+                var result = db.Incidencias.First(
+                    b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
+                            && b.Texto == IncidenciaSeleccionada.Texto));
+                if (result != null)
+                {
+                    db.Incidencias.Remove(result);
+                    db.SaveChanges();
+                }
+
+                LeerProyectos();
+                ActualizarListado();
+            }
+                
         }
 
         #endregion

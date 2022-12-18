@@ -19,13 +19,15 @@
         <ListView Height="191" Width="574" ItemsSource="{Binding Incidencias}" SelectedItem="{Binding IncidenciaSeleccionada}" Canvas.Left="29" Canvas.Top="135">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn  Header="Producción" Width="80" DisplayMemberBinding="{Binding Produccion}" />
                     <GridViewColumn  Header="Hora Inicio" Width="80" DisplayMemberBinding="{Binding HoraInicio}" />
                     <GridViewColumn  Header="Hora Fin" Width="80" DisplayMemberBinding="{Binding HoraFin}" />
-                    <GridViewColumn  Header="Instalación" Width="150" DisplayMemberBinding="{Binding Instalacion}" />
-                    <GridViewColumn  Header="Incidencia" Width="300" DisplayMemberBinding="{Binding Texto}" />
+                    <GridViewColumn  Header="Instalación" Width="120" DisplayMemberBinding="{Binding Instalacion}" />
+                    <GridViewColumn  Header="Incidencia" Width="250" DisplayMemberBinding="{Binding Texto}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Content="Borrar" Command="{Binding BorrarComando}" Canvas.Left="30" Canvas.Top="344" Height="28" Width="46"/>
+        <Button Content="Exportar" Command="{Binding ExportarComando}" Canvas.Left="546" Canvas.Top="344" Height="28" Width="57" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 </UserControl>
