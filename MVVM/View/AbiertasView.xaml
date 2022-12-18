@@ -10,20 +10,21 @@
              Background="White">
 
     <UserControl.DataContext>
-        <ViewModel:NuevaViewModel/>
+        <ViewModel:AbiertasViewModel/>
     </UserControl.DataContext>
     <Canvas>
         <Label Content="Proyecto:" FontWeight="Bold" Margin="29,19,703,402"/>
-        <Label Content="Plantilla:" FontWeight="Bold" Margin="29,49,703,372"/>
         <Label Content="Incidencias:" FontWeight="Bold" Margin="29,101,678,320"/>
-        <Button Content="Cerrar" Canvas.Left="29" Canvas.Top="345" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Borrar" Canvas.Left="118" Canvas.Top="345" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox Canvas.Left="108" Canvas.Top="23" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ComboBox Canvas.Left="108" Canvas.Top="53" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ListView Height="191" Width="574" d:ItemsSource="{Binding Incidencias}" Canvas.Left="29" Canvas.Top="135" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Content="Cerrar" Command="{Binding CerrarComando}" Canvas.Left="29" Canvas.Top="345" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Borrar" Command="{Binding BorrarComando}" Canvas.Left="118" Canvas.Top="345" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox Canvas.Left="108" ItemsSource="{Binding Proyectos}" SelectedItem="{Binding ProyectoSeleccionado}" Canvas.Top="23" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListView Height="191" Width="574" ItemsSource="{Binding Incidencias}" SelectedItem="{Binding IncidenciaSeleccionada}" Canvas.Left="29" Canvas.Top="135" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn  Header="Hora Inicio" Width="80" DisplayMemberBinding="{Binding HoraInicio}" />
+                    <GridViewColumn  Header="Hora Fin" Width="80" DisplayMemberBinding="{Binding HoraFin}" />
+                    <GridViewColumn  Header="Instalación" Width="150" DisplayMemberBinding="{Binding Instalacion}" />
+                    <GridViewColumn  Header="Incidencia" Width="300" DisplayMemberBinding="{Binding Texto}" />
                 </GridView>
             </ListView.View>
         </ListView>

@@ -14,23 +14,12 @@
 
     <Canvas>
         <Label Content="Proyecto:" Width="68" Height="29" Canvas.Left="29" Canvas.Top="19" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <ComboBox Canvas.Left="108" Canvas.Top="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="Plantilla:" Width="68" Height="29" Canvas.Left="29" Canvas.Top="49" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <ComboBox Canvas.Left="108" Canvas.Top="53" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="Instalación:" Width="85" Height="29" Canvas.Left="29" Canvas.Top="79" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <ComboBox Canvas.Left="108" Canvas.Top="83" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="Incidencia:" Width="68" Height="29" Canvas.Left="29" Canvas.Top="134" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Canvas.Left="29" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="422" Height="92"/>
-        <Button Content="Guardar" Canvas.Left="29" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="68"/>
-        <Button Content="Nuevo" Canvas.Left="326" Canvas.Top="23" Height="26" Width="68" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button Content="Nueva" Canvas.Left="326" Canvas.Top="53" Height="26" Width="68" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Content="Nueva" Canvas.Left="326" Canvas.Top="84" Height="26" Width="68" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button Content="Borrar" Canvas.Left="240" Canvas.Top="23" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Borrar" Canvas.Left="240" Canvas.Top="53" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Button Content="Borrar" Canvas.Left="240" Canvas.Top="84" Height="26" Width="68" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox Canvas.Left="408" TextWrapping="Wrap" Text="" Canvas.Top="23" Width="120" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox Canvas.Left="408" TextWrapping="Wrap" Text="" Canvas.Top="54" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Canvas.Left="408" TextWrapping="Wrap" Text="" Canvas.Top="85" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="Instalación:" Width="85" Height="29" Canvas.Left="29" Canvas.Top="53" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="Incidencia:" Width="68" Height="29" Canvas.Left="29" Canvas.Top="87" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding TextoIncidencia}" Canvas.Left="29" TextWrapping="Wrap"  Canvas.Top="121" Width="422" Height="139" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Content="Guardar" Command ="{Binding GuardarComando}"  Canvas.Left="29" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="68"/>
+        <TextBox Canvas.Left="108" TextWrapping="Wrap" Text="{Binding Proyecto}" Canvas.Top="23" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="108" TextWrapping="Wrap" Text="{Binding Instalacion}" Canvas.Top="57" Width="120" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
     </Canvas>
