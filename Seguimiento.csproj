@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>177182786-icono-de-concepto-de-información-de-servicio-seguimiento-de-la-producción-de-bienes-ilustr.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,10 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="177182786-icono-de-concepto-de-información-de-servicio-seguimiento-de-la-producción-de-bienes-ilustr.ico" />
   </ItemGroup>
 
   <ItemGroup>
