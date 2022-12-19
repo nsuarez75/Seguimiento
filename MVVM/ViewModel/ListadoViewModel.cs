@@ -42,6 +42,22 @@ namespace Seguimiento.MVVM.ViewModel
             }
         }
 
+        //Nueva Hora Inicio
+        string _NuevaHoraInicio;
+        public string NuevaHoraInicio
+        {
+            get => _NuevaHoraInicio;
+            set => SetProperty(ref _NuevaHoraInicio, value);
+        }
+
+        //Nueva Hora Fin
+        string _NuevaHoraFin;
+        public string NuevaHoraFin
+        {
+            get => _NuevaHoraFin;
+            set => SetProperty(ref _NuevaHoraFin, value);
+        }
+
         #endregion
 
         #region comandos
@@ -50,14 +66,12 @@ namespace Seguimiento.MVVM.ViewModel
 
         public void Borrar()
         {
-            if (IncidenciaSeleccionada != null && IncidenciaSeleccionada.HoraInicio != null)
+            if (IncidenciaSeleccionada != null)
             {
                 //objeto base de datos
                 using var db = new IncidenciaContext();
 
-                var result = db.Incidencias.First(
-                    b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
-                            && b.Texto == IncidenciaSeleccionada.Texto));
+                var result = db.Incidencias.First(b => (b.IncidenciaId == IncidenciaSeleccionada.IncidenciaId));
 
                 if (result != null)
                 {
@@ -67,7 +81,7 @@ namespace Seguimiento.MVVM.ViewModel
 
                 LeerProyectos();
                 ActualizarListado();
-            }
+            }                     
                 
         }
 
@@ -78,8 +92,35 @@ namespace Seguimiento.MVVM.ViewModel
             if (ProyectoSeleccionado != null )
             {
                 ExcelModel hoja = new ExcelModel();
-                hoja.GenerarExcel(Incidencias, "C:\\Users\\suare\\Desktop");
+                hoja.GenerarExcel(Incidencias);
 
+            }
+
+        }
+
+        public Command ModificarComando { get; }
+
+        public void Modificar()
+        {
+            if (IncidenciaSeleccionada != null)
+
+            {
+                //objeto base de datos
+                using var db = new IncidenciaContext();
+                
+                var result = db.Incidencias.First(b => (b.IncidenciaId == IncidenciaSeleccionada.IncidenciaId));
+
+                if (result != null)
+                {
+                    if (NuevaHoraInicio != null) result.HoraInicio = NuevaHoraInicio;
+                    if (NuevaHoraFin != null) result.HoraFin = NuevaHoraFin;
+                    db.SaveChanges();
+                }
+
+                ActualizarListado();
+
+                NuevaHoraFin = null;
+                NuevaHoraInicio = null;
             }
 
         }
@@ -124,6 +165,7 @@ namespace Seguimiento.MVVM.ViewModel
             //Comandos
             BorrarComando = new Command(Borrar);
             ExportarComando = new Command(Exportar);
+            ModificarComando = new Command(Modificar);
 
             //Popular tabla
             ActualizarListado();

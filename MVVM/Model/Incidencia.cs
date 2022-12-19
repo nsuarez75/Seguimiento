@@ -25,5 +25,12 @@ namespace Seguimiento.MVVM.Model
         public string Produccion { get; set; }
 
         public bool Estado { get; set; }
+
+
+
+
+
+
+
     }
 }

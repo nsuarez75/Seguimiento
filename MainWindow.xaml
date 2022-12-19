@@ -35,7 +35,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <!--Logotipo-->
+            <!--Titulo-->
             <StackPanel Grid.Row="0" Grid.Column="0" Background="#0099DD">
                 <Label Content="Seguimiento"
                    Margin="10 0 0 0"

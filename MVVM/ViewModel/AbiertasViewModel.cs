@@ -48,15 +48,14 @@ namespace Seguimiento.MVVM.ViewModel
         public Command CerrarComando { get; }
 
         public void Cerrar()
-        {if (IncidenciaSeleccionada != null && IncidenciaSeleccionada.HoraInicio != null)
+        {
+            if (IncidenciaSeleccionada != null)
             
             {
                 //objeto base de datos
                 using var db = new IncidenciaContext();
 
-                var result = db.Incidencias.SingleOrDefault(
-                    b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
-                            && b.Texto == IncidenciaSeleccionada.Texto));
+                var result = db.Incidencias.First(b => (b.IncidenciaId == IncidenciaSeleccionada.IncidenciaId));
 
                 if (result != null)
                 {
@@ -75,14 +74,13 @@ namespace Seguimiento.MVVM.ViewModel
 
         public void Borrar()
         {
-            if (IncidenciaSeleccionada != null && IncidenciaSeleccionada.HoraInicio != null)
+            if (IncidenciaSeleccionada != null)
             {
                 //objeto base de datos
                 using var db = new IncidenciaContext();
 
-                var result = db.Incidencias.First(
-                    b => (b.HoraInicio == IncidenciaSeleccionada.HoraInicio
-                            && b.Texto == IncidenciaSeleccionada.Texto));
+                var result = db.Incidencias.First(b => (b.IncidenciaId == IncidenciaSeleccionada.IncidenciaId));
+
                 if (result != null)
                 {
                     db.Incidencias.Remove(result);

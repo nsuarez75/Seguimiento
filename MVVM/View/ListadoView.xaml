@@ -29,5 +29,10 @@
         </ListView>
         <Button Content="Borrar" Command="{Binding BorrarComando}" Canvas.Left="30" Canvas.Top="344" Height="28" Width="46"/>
         <Button Content="Exportar" Command="{Binding ExportarComando}" Canvas.Left="546" Canvas.Top="344" Height="28" Width="57" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="Mod. Hora Inicio:" Width="113" Height="29" Canvas.Left="346" Canvas.Top="19" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="Mod. Hora Fin:" Width="113" Height="29" Canvas.Left="346" Canvas.Top="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevaHoraInicio}" Canvas.Top="19" Width="69" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevaHoraFin}" Canvas.Top="50" Width="69" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Content="Modificar" Command="{Binding ModificarComando}" Canvas.Left="93" Canvas.Top="344" Height="28" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 </UserControl>

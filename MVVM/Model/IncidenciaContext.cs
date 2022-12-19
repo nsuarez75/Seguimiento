@@ -17,9 +17,10 @@ namespace Seguimiento.MVVM.Model
 
         public IncidenciaContext()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
+            var folder = Environment.SpecialFolder.MyDocuments;
             var path = Environment.GetFolderPath(folder);
             DbPath = System.IO.Path.Join(path, "incidencias.db");
+
         }
 
         // The following configures EF to create a Sqlite database file in the

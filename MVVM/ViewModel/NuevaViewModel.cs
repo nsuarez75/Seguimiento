@@ -72,6 +72,10 @@ namespace Seguimiento.MVVM.ViewModel
             }); ;
             db.SaveChanges();
 
+            TextoIncidencia = null;
+            Instalacion = null;
+            Proyecto = null;
+            Produccion = null;
         }
 
         #endregion

@@ -17,7 +17,7 @@ namespace Seguimiento.MVVM.Model
     internal class ExcelModel
     {
 
-        public void GenerarExcel(ObservableRangeCollection<Incidencia> Incidencias, string path)
+        public void GenerarExcel(ObservableRangeCollection<Incidencia> Incidencias)
         {
             Excel.Application oXL;
             Excel._Workbook oWB;
