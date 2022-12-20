@@ -27,10 +27,5 @@ namespace Seguimiento.MVVM.Model
         public bool Estado { get; set; }
 
 
-
-
-
-
-
     }
 }

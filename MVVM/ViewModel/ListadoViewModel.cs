@@ -85,6 +85,29 @@ namespace Seguimiento.MVVM.ViewModel
                 
         }
 
+        public Command BorrarProyectoComando { get; }
+
+        public void BorrarProyecto()
+        {
+            if (ProyectoSeleccionado != null)
+            {
+                //objeto base de datos
+                using var db = new IncidenciaContext();
+
+                var query = db.Incidencias.Where(b => b.Proyecto == ProyectoSeleccionado);
+
+                if (query != null)
+                {
+                    foreach (Incidencia inc in query) db.Incidencias.Remove(inc);
+                    db.SaveChanges();
+                }
+
+                LeerProyectos();
+                ActualizarListado();
+            }
+
+        }
+
         public Command ExportarComando { get; }
 
         public void Exportar()
@@ -166,6 +189,7 @@ namespace Seguimiento.MVVM.ViewModel
             BorrarComando = new Command(Borrar);
             ExportarComando = new Command(Exportar);
             ModificarComando = new Command(Modificar);
+            BorrarProyectoComando = new Command(BorrarProyecto);
 
             //Popular tabla
             ActualizarListado();

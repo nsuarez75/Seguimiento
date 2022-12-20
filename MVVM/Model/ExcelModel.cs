@@ -47,6 +47,7 @@ namespace Seguimiento.MVVM.Model
 
                 //Rellenar celdas
                 int puntero = 2;
+                int ultimainc = 0;
                 foreach (Incidencia incidencia in Incidencias)
                 {
                     oSheet.Cells[puntero,1] = incidencia.Produccion;
@@ -56,13 +57,44 @@ namespace Seguimiento.MVVM.Model
                     oSheet.Cells[puntero, 5] = incidencia.Instalacion;
                     oSheet.Cells[puntero, 6] = incidencia.Texto;
 
+                    ultimainc = puntero;
                     puntero++;
+                    
                 }
 
-                //Calculo final de tiempo
+                //Calculo final de tiempo Total
                 oSheet.Cells[puntero, 1] = "Total";
                 oSheet.get_Range($"A{puntero}").Font.Bold = true;
                 oSheet.Cells[puntero, 4] = $"=SUM(D2:D{puntero - 1})";
+                oSheet.get_Range($"D{puntero}").Font.Bold = true;
+
+                //Estilo de tabla
+                //oWB.DefaultTableStyle = oWB.TableStyles["TableStyleLight1"];
+                //Rango de celdas con datos
+                oRng = oSheet.Range["A1", $"F{puntero}"];
+                oRng.Select();
+                
+                // Dar formato a la tabla
+                oRng.Worksheet.ListObjects.AddEx(
+                    SourceType: Excel.XlListObjectSourceType.xlSrcRange,
+                    Source: oRng,
+                    XlListObjectHasHeaders: Excel.XlYesNoGuess.xlYes);
+
+
+                puntero += 2;
+                //Calculo de tiempo por instalación
+                var instalaciones = Incidencias.Select(o => o.Instalacion).Distinct();
+                foreach(var instalacion in instalaciones)
+                {
+                    //Titulo
+                    oSheet.Cells[puntero, 1] = $"Total en {instalacion}:";
+                    oSheet.get_Range($"A{puntero}").Font.Bold = true;
+                    //Tiempo
+                    oSheet.Cells[puntero, 2] = $"=SUMIF(E2:E{ultimainc},\"{instalacion}\",D2:D{ultimainc})";
+                    oSheet.Cells[puntero, 2].NumberFormat = "h:mm";
+                    oSheet.get_Range($"A{puntero}").Font.Bold = true;
+                    puntero++;
+                }
 
                 //Make sure Excel is visible and give the user control
                 //of Microsoft Excel's lifetime.

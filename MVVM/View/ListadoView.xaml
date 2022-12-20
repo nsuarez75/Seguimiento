@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Seguimiento.MVVM.View"
              xmlns:ViewModel="clr-namespace:Seguimiento.MVVM.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="450" d:DesignWidth="650"
              Background="White">
     <UserControl.DataContext>
         <ViewModel:ListadoViewModel/>
@@ -34,5 +34,6 @@
         <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevaHoraInicio}" Canvas.Top="19" Width="69" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevaHoraFin}" Canvas.Top="50" Width="69" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Button Content="Modificar" Command="{Binding ModificarComando}" Canvas.Left="93" Canvas.Top="344" Height="28" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Content="Borrar" Command="{Binding BorrarProyectoComando}" Canvas.Left="241" Canvas.Top="22" Height="24" Width="54" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Canvas>
 </UserControl>
