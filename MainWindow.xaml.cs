@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seguimiento.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,10 @@ namespace Seguimiento
     {
         public MainWindow()
         {
+            using (var client = new IncidenciaContext())
+            {
+                client.Database.EnsureCreated();
+            }
             InitializeComponent();
         }
 

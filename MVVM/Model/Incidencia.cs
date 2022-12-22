@@ -20,7 +20,7 @@ namespace Seguimiento.MVVM.Model
 
         public string Instalacion { get; set; }
 
-        public string Proyecto { get; set; }
+        public string Proyecto { get; set; } = "1";
 
         public string Produccion { get; set; }
 

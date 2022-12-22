@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Seguimiento.MVVM.Model;
 using System.Reflection.Metadata;
+using System.Windows;
 
 namespace Seguimiento.MVVM.ViewModel
 {
@@ -60,22 +61,35 @@ namespace Seguimiento.MVVM.ViewModel
             //objeto base de datos
             using var db = new IncidenciaContext();
 
-            //añadir incidencia a la base de datos
-            db.Add(new Incidencia
-            {
-                Texto = TextoIncidencia,
-                Estado = false,
-                Instalacion = Instalacion,
-                HoraInicio = DateTime.Now.ToString("HH:mm"),
-                Proyecto = Proyecto,
-                Produccion = Produccion
-            }); ;
-            db.SaveChanges();
+            //Inicializar incidencia
+            Incidencia inc = new Incidencia();
 
-            TextoIncidencia = null;
-            Instalacion = null;
-            Proyecto = null;
-            Produccion = null;
+            //Rellenar valores de sus propiedades
+            if (TextoIncidencia != null && Instalacion != null && Proyecto != null)
+            {
+                inc.Texto = TextoIncidencia;
+                inc.Estado = false;
+                inc.Instalacion = Instalacion;
+                inc.HoraInicio = DateTime.Now.ToString("HH:mm");
+                if (Proyecto != "") inc.Proyecto = Proyecto;
+                else inc.Proyecto = "1";
+                inc.Produccion = Produccion;
+
+                //añadir incidencia a la base de datos
+                db.Add(inc); ;
+                db.SaveChanges();
+
+                TextoIncidencia = null;
+                Instalacion = null;
+                Proyecto = null;
+                Produccion = null;
+            }
+            else
+            {
+                MessageBox.Show("Los campos \"Proyecto\", \"Instalación\" y la incidencia no pueden estar vacios");
+            }
+
+            
         }
 
         #endregion
