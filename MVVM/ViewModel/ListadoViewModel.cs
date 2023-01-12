@@ -58,9 +58,42 @@ namespace Seguimiento.MVVM.ViewModel
             set => SetProperty(ref _NuevaHoraFin, value);
         }
 
+        //Nueva Texto
+        string _NuevoTexto;
+        public string NuevoTexto
+        {
+            get => _NuevoTexto;
+            set => SetProperty(ref _NuevoTexto, value);
+        }
+
         #endregion
 
         #region comandos
+
+        public Command CerrarComando { get; }
+
+        public void Cerrar()
+        {
+            if (IncidenciaSeleccionada != null)
+
+            {
+                //objeto base de datos
+                using var db = new IncidenciaContext();
+
+                var result = db.Incidencias.First(b => (b.IncidenciaId == IncidenciaSeleccionada.IncidenciaId));
+
+                if (result != null)
+                {
+                    result.HoraFin = DateTime.Now.ToString("HH:mm");
+                    result.Estado = true;
+                    db.SaveChanges();
+                }
+
+                ActualizarListado();
+            }
+
+
+        }
 
         public Command BorrarComando { get; }
 
@@ -137,6 +170,7 @@ namespace Seguimiento.MVVM.ViewModel
                 {
                     if (NuevaHoraInicio != null) result.HoraInicio = NuevaHoraInicio;
                     if (NuevaHoraFin != null) result.HoraFin = NuevaHoraFin;
+                    if (NuevoTexto != null) result.Texto = NuevoTexto;
                     db.SaveChanges();
                 }
 
@@ -177,6 +211,8 @@ namespace Seguimiento.MVVM.ViewModel
             {
                 if (Proyectos.Contains(Inc.Proyecto) != true) Proyectos.Add(Inc.Proyecto);
             }
+
+            if (Proyectos.Count != 0) ProyectoSeleccionado = Proyectos.First();
         }
 
         public ListadoViewModel()
@@ -190,10 +226,11 @@ namespace Seguimiento.MVVM.ViewModel
             ExportarComando = new Command(Exportar);
             ModificarComando = new Command(Modificar);
             BorrarProyectoComando = new Command(BorrarProyecto);
+            CerrarComando = new Command(Cerrar);
 
             //Popular tabla
-            ActualizarListado();
             LeerProyectos();
+            ActualizarListado();        
         }
 
 

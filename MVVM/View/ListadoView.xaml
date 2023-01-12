@@ -27,13 +27,16 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Borrar" Command="{Binding BorrarComando}" Canvas.Left="30" Canvas.Top="344" Height="28" Width="46"/>
+        <Button Content="Borrar" Command="{Binding BorrarComando}" Canvas.Left="170" Canvas.Top="344" Height="28" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Button Content="Exportar" Command="{Binding ExportarComando}" Canvas.Left="546" Canvas.Top="344" Height="28" Width="57" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="Mod. Hora Inicio:" Width="113" Height="29" Canvas.Left="346" Canvas.Top="19" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="Mod. Hora Fin:" Width="113" Height="29" Canvas.Left="346" Canvas.Top="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevaHoraInicio}" Canvas.Top="19" Width="69" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevaHoraFin}" Canvas.Top="50" Width="69" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button Content="Modificar" Command="{Binding ModificarComando}" Canvas.Left="93" Canvas.Top="344" Height="28" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Content="Modificar" Command="{Binding ModificarComando}" Canvas.Left="103" Canvas.Top="344" Height="28" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Button Content="Borrar" Command="{Binding BorrarProyectoComando}" Canvas.Left="241" Canvas.Top="22" Height="24" Width="54" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Cerrar" Command="{Binding CerrarComando}" Canvas.Left="34" Canvas.Top="344" Height="28" Width="58" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Mod. Incidencia:" Width="113" Height="29" Canvas.Left="346" Canvas.Top="81" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Canvas.Left="459" TextWrapping="Wrap" Text="{Binding NuevoTexto}" Canvas.Top="80" Width="69" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Canvas>
 </UserControl>

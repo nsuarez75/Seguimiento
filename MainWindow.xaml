@@ -83,11 +83,11 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NuevaViewCommand}"/>
 
-                <RadioButton Content="Abiertas"
+                <!--<RadioButton Content="Abiertas"
                              Height="50"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding AbiertasViewCommand}"/>
+                             Command="{Binding AbiertasViewCommand}"/>-->
 
                 <RadioButton Content="Listado"
                              Height="50"
